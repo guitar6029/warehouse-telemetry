@@ -8,6 +8,8 @@ RUN dotnet restore
 
 COPY . .
 
+RUN dotnet tool restore
+
 RUN dotnet publish -c Release -o /app/publish --no-restore
 
 
@@ -18,3 +20,8 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "warehouse-telemetry.dll"]
+
+
+FROM build AS dev
+
+ENTRYPOINT ["dotnet", "run", "--urls=http://0.0.0.0:5073"]
