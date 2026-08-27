@@ -16,4 +16,14 @@ public class Device
         SerialNumber = serialNumber;
         Status = status;
     }
+
+    public void Ship()
+    {
+        if (Status != DeviceStatus.Received)
+        {
+            throw new InvalidOperationException("Only received devices can be shipped.");
+        }
+
+        Status = DeviceStatus.Shipped;
+    }
 }
