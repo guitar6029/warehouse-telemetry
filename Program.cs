@@ -1,4 +1,8 @@
+using warehouse_telemetry.Features.Device.Service;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDeviceServices();
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
