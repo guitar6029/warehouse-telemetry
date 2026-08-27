@@ -14,4 +14,10 @@ public class DeviceService : IDeviceService
         // for now demonstrate the business rule
         device.Ship();
     }
+
+    public void ShipDeviceById(Guid id)
+    {
+        // check if id exist , throw DeviceNotFoundException
+        // if exits then ship it
+    }
 }
