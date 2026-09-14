@@ -6,6 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDeviceServices();
 
+//seeder
+builder.Services.AddScoped<DeviceSeeder>();
+builder.Services.AddHostedService<DatabaseSeeder>();
+
+
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection");
 
